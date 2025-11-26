@@ -1,0 +1,37 @@
+@use '../../styles/variables' as v;
+
+.app-button {
+  height: 48px;
+  padding: 0 32px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: v.$color-primary;
+    color: v.$color-white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    &:hover:not(:disabled) {
+      background-color: v.$color-primary-dark;
+      box-shadow: 0 4px 12px rgba(v.$color-primary, 0.2);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border: 1px solid v.$border-danger;
+    color: v.$text-danger;
+
+    &:hover:not(:disabled) {
+      background-color: #FEF2F2;
+      border-color: v.$text-danger;
+    }
+  }
+}

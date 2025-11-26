@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* Define our custom colors here instead of tailwind.config.js */
+
   --color-fridge-bg: #F4FAFF;
   --color-fridge-dark: #0A3456;
   --color-fridge-primary: #005C9A;
   
-  /* Status Colors */
+ 
   --color-fridge-red: #FFE5E5;
   --color-fridge-redText: #D32F2F;
   --color-fridge-yellow: #FFF8C5;
@@ -15,7 +15,9 @@
   --color-fridge-greenText: #166534;
 }
 
-/* Set the default background */
+
 body {
   background-color: var(--color-fridge-bg);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
 }

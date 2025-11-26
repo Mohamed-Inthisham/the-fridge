@@ -1,12 +1,10 @@
-
-
-
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import ItemForm from './components/Forms/ItemForm';
 import FridgeItem from './components/FridgeList/FridgeItem';
 import ConfirmModal from './components/Modal/ConfirmModal'; 
 import Toast from './components/Toast/Toast'; // <--- Import Toast
 import { getAllItems, deleteItem } from './services/itemService'; 
+import './App.scss'; // Import the styles
 
 function App() {
   const [items, setItems] = useState([]);
@@ -102,12 +100,12 @@ function App() {
         />
       )}
 
-      <div className="absolute top-0 left-0 w-full h-[320px] bg-white z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-[340px] bg-white z-0"></div>
       
       <div className="relative z-10 max-w-5xl mx-auto pt-12 px-4">
         <header className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-[#0A3456] mb-2">Good Morning, Johny!</h1>
-          <p className="text-gray-500 font-medium">⛅ It's better to go shopping before this friday</p>
+          <h1 className="app-title text-center mb-10">Good Morning, Johny!</h1>
+          <p className="app-subtitle text-center mb-10">⛅ It's better to go shopping before this friday</p>
         </header>
 
         {/* Pass showToast to the Form */}

@@ -1,133 +1,46 @@
-/* src/components/Forms/ItemForm.scss */
+@use '../../styles/variables' as v;
 
-// 1. Variables (Figma colors & sizes)
-$white: #fff;
+.item-form-card {
+  background-color: v.$color-white;
 
-
-$fridge-blue: #005C9A;
-$fridge-blue-dark: #004a7c;
-$focus-blue: #005C9A;
-
-$gray-600: #4B5563;
-$gray-500: #6B7280;
-$text-dark: #374151;
-$placeholder: #9CA3AF;
-
-$border-light: #CFD9E0;
-$subtle-border: rgba(0, 0, 0, 0.02);
-$figma-shadow: rgba(0, 72, 115, 0.1);
-
-$card-radius: 16px;
-$input-radius: 4px;
-$spacing-gap: 20px;
-$input-height: 48px;
-
-// 2. Main Card Container
-.item-form {
-  width: 100%;
-  max-width: 934px;
-  margin: 0 auto;
-
-  background-color: $white;
-
-  // Exact Figma card styles
-  border-radius: $card-radius;
-  box-shadow: 0px 6px 24px $figma-shadow;
-  border: 1px solid $subtle-border;
+  border-radius: v.$radius-card;
+  box-shadow: 0px 6px 24px rgba(0, 72, 115, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.02);
   padding: 32px 40px;
+  margin-top: 40px;
 
-  // 3. Layout Row
-  &__row {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-gap;
-    align-items: flex-end;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-    }
-  }
-
-  // 4. Input Groups
-  &__group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    &--name {
-      flex: 1.5;
-    }
-
-    &--date {
-      flex: 1;
-    }
-  }
-
-  // 5. Labels
   &__label {
     font-size: 12px;
     font-weight: 700;
-    color: $gray-600;
-    margin-bottom: 8px;
+    color: v.$text-gray;
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  // 6. Inputs
   &__input {
-    width: 100%;
-    height: $input-height;
-
-    border: 1px solid $border-light;
-    border-radius: $input-radius;
+    height: 48px;
+    border: 1px solid v.$border-light;
+    border-radius: v.$radius-input;
     padding: 0 16px;
-
     font-size: 14px;
-    color: $text-dark;
+    color: v.$text-dark;
     outline: none;
     transition: all 0.2s;
 
     &::placeholder {
-      color: $placeholder;
+      color: v.$text-placeholder;
     }
 
     &:focus {
-      border-color: $focus-blue;
-      box-shadow: 0 0 0 3px rgba($focus-blue, 0.1);
+      border-color: v.$color-primary;
+      box-shadow: 0 0 0 3px rgba(v.$color-primary, 0.1);
     }
   }
 
-  // 7. Button
-  &__button {
-    height: $input-height;
-    background-color: $fridge-blue;
-    color: $white;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-
-    border-radius: $input-radius;
-    border: none;
-    padding: 0 32px;
-    cursor: pointer;
-    transition: background 0.2s;
-    width: 100%;
-
-    &:hover {
-      background-color: $fridge-blue-dark;
-    }
-
-    @media (min-width: 768px) {
-      width: auto;
-    }
-  }
-
-  // 8. Warning Text
   &__warning {
-    margin-top: 16px;
     font-size: 11px;
-    color: $gray-500;
+    color: v.$text-light;
     font-weight: 500;
     display: flex;
     align-items: center;

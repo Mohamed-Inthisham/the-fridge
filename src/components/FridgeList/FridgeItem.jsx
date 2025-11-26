@@ -1,43 +1,46 @@
 import React from 'react';
 import { calculateStatus } from '../../services/dateUtils';
+import Badge from '../Badge/Badge'; // Import the new reusable component
 import './FridgeItem.scss';
 
 const FridgeItem = ({ item, onDelete, onEdit }) => {
+  // Get status string (e.g., "Healthy")
   const status = calculateStatus(item.expiry);
-  const statusClass = status.toLowerCase().replace(' ', '-');
 
   return (
-    // 1. CLICK THE WHOLE ROW TO EDIT
     <div 
-      className="fridge-item" 
+      className="fridge-item flex items-center justify-between" 
       onClick={() => onEdit(item)} 
       title="Click to Edit"
     >
       
-      {/* Name */}
-      <div className="flex-1">
-        <span className="fridge-item__title block">{item.title}</span>
-        <span className="md:hidden text-xs text-gray-400">{item.expiry}</span>
-      </div>
+      {/* 1. Item Details */}
+      <div className="flex-1 flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+        <span className="fridge-item__title font-bold text-lg">
+          {item.title}
+        </span>
+        
+        {/* Mobile Date */}
+        <span className="md:hidden text-xs text-gray-400">
+          {item.expiry}
+        </span>
 
-      {/* Date */}
-      <span className="fridge-item__date hidden md:block">
-        Expiry date — {item.expiry}
-      </span>
-
-      {/* Status Badge */}
-      <div className="fridge-item__badge-container">
-        <span className={`fridge-item__badge fridge-item__badge--${statusClass}`}>
-          {status}
+        {/* Desktop Date */}
+        <span className="fridge-item__date hidden md:block text-sm text-gray-500">
+          Expiry date — {item.expiry}
         </span>
       </div>
 
-      {/* 2. DELETE BUTTON */}
+      {/* 2. Reusable Badge Component */}
+      <div className="mr-4">
+        <Badge status={status} />
+      </div>
+
+      {/* 3. Delete Action */}
       <button 
-        className="fridge-item__delete" 
+        className="fridge-item__delete-btn" 
         onClick={(e) => {
-          // CRITICAL: Stop the click from bubbling up to the row
-          e.stopPropagation(); 
+          e.stopPropagation(); // Stop click from triggering "Edit"
           onDelete(item._id);
         }} 
         title="Delete Item"

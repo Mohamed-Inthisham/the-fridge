@@ -1,0 +1,30 @@
+@use '../../styles/variables' as v;
+
+.app-badge {
+  // Shape & Layout (Tailwind handles flex, but specific sizes go here)
+  padding: 4px 12px;
+  border-radius: 99px; // Pill shape
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  // --- Variant 1: Healthy (> 1 Month) ---
+  &--healthy {
+    background-color: #DBFFE6; // Tailwind green-50
+    color: #23553E;            // Tailwind green-600
+  }
+
+  // --- Variant 2: Expiring Soon (< 1 Month) ---
+  &--expiring-soon {
+    background-color: #FFFDCC; // Tailwind amber-50
+    color: #754311;            // Tailwind amber-600
+  }
+
+  // --- Variant 3: Expired (Passed Date) ---
+  &--expired {
+    background-color: #FFEBEB; // Tailwind red-50
+    color: v.$text-expired;     // Red
+  }
+}
