@@ -2,7 +2,7 @@
 
 @theme {
   /* Define our custom colors here instead of tailwind.config.js */
-  --color-fridge-bg: #F0F5FA;
+  --color-fridge-bg: #F4FAFF;
   --color-fridge-dark: #0A3456;
   --color-fridge-primary: #005C9A;
   
