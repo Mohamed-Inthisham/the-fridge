@@ -2,12 +2,14 @@
 
 .app-badge {
   // Shape & Layout (Tailwind handles flex, but specific sizes go here)
-  padding: 4px 12px;
-  border-radius: 99px; // Pill shape
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  width: 100px;
+  height: 24px;
+  
+  border-radius: 22px; // Pill shape
+  font-size: 12px;
+  font-weight: 600;
+
+  
   white-space: nowrap;
 
   // --- Variant 1: Healthy (> 1 Month) ---

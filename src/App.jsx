@@ -116,7 +116,7 @@ function App() {
           showToast={showToast}  // <--- PASS THE FUNCTION
         />
 
-        <div className="flex justify-end mb-4 mt-8">
+        <div className="flex justify-end mb-4 mt-8 mx-7">
             <span className="text-[#0A3456] font-bold text-sm">
               Total items — {items.length.toString().padStart(2, '0')}
             </span>
@@ -124,7 +124,7 @@ function App() {
 
         <div className="flex flex-col gap-2">
           {isLoading ? (
-            <p className="text-center text-[#00598D] mt-10">... <br /> Loading fridge items</p>
+            <p className="loading-text text-center  mt-5">... <br /> <br /> Loading fridge items</p>
           ) : (
             items.map((item) => (
               <FridgeItem 

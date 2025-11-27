@@ -2,40 +2,76 @@
 
 .fridge-item {
   background-color: v.$color-white;
+  width: 934px; 
+  /* INCREASED Height: 50px is too small. 72px allows proper spacing. */
+  height: 50px; 
+  margin-left: 30px; 
   
-  // Visual Card Style
-  border: 1px solid rgba(0,0,0,0.02);
-  border-radius: 12px;
-  padding: 16px 24px;
-  margin-bottom: 12px;
+  border: 1px solid #EEF3F8;
+  border-radius: v.$radius-input;
+  
+  /* Use horizontal padding only. Flexbox handles vertical centering. */
+  padding: 0 32px; 
+  margin-bottom: 10px;
   
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  // Hover Effect for the whole row
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border-color: v.$color-primary; // Highlights border blue on hover
+    border-color: v.$color-primary; 
     transform: translateY(-1px);
+
+    // Optional: Turn trash icon red on hover
+    .fridge-item__delete-btn svg path {
+      stroke: #d63939;
+    }
   }
 
+  /* Font Styles */
   &__title {
     color: v.$text-dark;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  &__label {
+    color: #728197; /* The specific gray from Figma */ 
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  &__date {
+    color: #728197; /* The specific gray from Figma */ 
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
   }
 
   &__delete-btn {
     background: transparent;
     border: none;
-    font-size: 18px;
     cursor: pointer;
-    opacity: 0.3;
-    transition: opacity 0.2s;
     padding: 8px;
-    border-radius: 50%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    
+    // Default icon opacity
+    svg path {
+      transition: stroke 0.2s;
+      stroke: #2E3849; // Dark Blue/Gray
+    }
 
     &:hover {
-      opacity: 1;
-      background-color: v.$bg-danger-light; // Light red background
+      background-color: #FEE2E2; // Light Red Bg
     }
   }
 }
