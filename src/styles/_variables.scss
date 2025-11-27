@@ -1,13 +1,13 @@
 // src/styles/_variables.scss
 
 // --- Colors ---
-$color-primary:       #005C9A; // The Fridge Blue
+$color-primary:       #00598D; // The Fridge Blue
 $color-primary-dark:  #004a7c;
 $color-white:         #ffffff;
 
 // Text Colors
 $text-dark:           #374151; // Gray-700
-$text-gray:           #4B5563; // Gray-600
+$text-gray:           #2E3849; // Gray-600 
 $text-light:          #6B7280; // Gray-500
 $text-placeholder:    #9CA3AF; // Gray-400
 $text-danger:         #ef4444; // Red-500
@@ -17,10 +17,10 @@ $text-subtitle:         #728197; // Red-500
 
 
 // Borders & Backgrounds
-$border-light:        #CFD9E0;
+$border-light:        #CCD6E1;
 $border-danger:       #fecaca; // Red-200
 $bg-danger-light:     #fef2f2; // Red-50
 
 // --- Dimensions ---
-$radius-card:         16px;
+$radius-card:         8px;
 $radius-input:        4px;

@@ -1,11 +1,16 @@
 @use '../../styles/variables' as v;
 
 .app-button {
-  height: 48px;
+  width: 230px;
+  height: 40px;
   padding: 0 32px;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.5px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  line-height: 100%;
+   
 
   &:disabled {
     opacity: 0.7;
@@ -16,7 +21,7 @@
     background-color: v.$color-primary;
     color: v.$color-white;
     border: 1px solid transparent;
-    border-radius: 10px;
+    
 
     &:hover:not(:disabled) {
       background-color: v.$color-primary-dark;
