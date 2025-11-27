@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState, useCallback } from 'react';
 import ItemForm from './components/Forms/ItemForm';
 import FridgeItem from './components/FridgeList/FridgeItem';
 import ConfirmModal from './components/Modal/ConfirmModal'; 
@@ -31,21 +31,22 @@ function App() {
   };
 
   // Fetch Data
-  const fetchData = async () => {
-    if(items.length === 0) setIsLoading(true);
-    try {
-      const data = await getAllItems();
-      setItems(data);
-    } catch (error) {
-      console.error("Failed to fetch items", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const fetchData = useCallback(async () => {
+  if(items.length === 0) setIsLoading(true);
+  try {
+    const data = await getAllItems();
+    setItems(data);
+  } catch (error) {
+    console.error("Failed to fetch items", error);
+  } finally {
+    setIsLoading(false);
+  }
+}, [items]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+useEffect(() => {
+  fetchData();
+}, [fetchData]);
+
 
   // --- HANDLERS ---
 
@@ -117,7 +118,7 @@ function App() {
         />
 
         <div className="flex justify-end mb-4 mt-8 mx-7">
-            <span className="text-[#0A3456] font-bold text-sm">
+            <span className="text-fridge-dark font-bold text-sm">
               Total items — {items.length.toString().padStart(2, '0')}
             </span>
         </div>

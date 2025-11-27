@@ -24,3 +24,44 @@ $bg-danger-light:     #fef2f2; // Red-50
 // --- Dimensions ---
 $radius-card:         8px;
 $radius-input:        4px;
+
+// _variables.scss
+$badge_width: 100px;
+$badge_height: 24px;
+$badge_radius: 22px;
+$badge_font_size: 12px;
+$badge_font_weight: 600;
+
+
+// Button Component Dimensions
+$btn_width: 230px;
+$btn_height: 40px;
+$btn_padding_x: 32px;
+$btn_font_size: 13px;
+$btn_font_weight: 700;
+$btn_letter_spacing: 0.5px;
+$btn_radius: 4px;
+
+
+
+// --- Item Form Card ---
+$form_card_max_width: 934px;
+$form_card_min_height: 170px;
+$form_card_padding_y: 32px;
+$form_card_padding_x: 40px;
+$form_card_margin_top: 60px;
+$form_card_margin_top_outer: 60px;
+$form_card_border: 1px solid #e3e9f1;
+
+// --- Labels ---
+$form_label_font_size: 14px;
+$form_label_font_weight: 600;
+$form_label_gap: 6px;
+$form_label_letter_spacing: -0.03em;
+
+// --- Inputs ---
+$form_input_width: 290px;
+$form_input_height: 40px;
+$form_input_padding: 16px;
+$form_input_border: 2px;
+$form_focus_ring: 3px;

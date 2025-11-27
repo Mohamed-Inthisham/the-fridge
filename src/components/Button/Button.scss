@@ -1,16 +1,19 @@
 @use '../../styles/variables' as v;
 
 .app-button {
-  width: 230px;
-  height: 40px;
-  padding: 0 32px;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
+  // Tailwind utilities for layout, alignment, transitions
+  @apply flex items-center justify-center transition-all duration-200 ease-in-out whitespace-nowrap;
+
+  // Figma exact values via Sass variables
+  width: v.$btn_width;
+  height: v.$btn_height;
+  padding: 0 v.$btn_padding_x;
+  font-weight: v.$btn_font_weight;
+  font-size: v.$btn_font_size;
+  letter-spacing: v.$btn_letter_spacing;
+  border-radius: v.$btn_radius;
   font-family: 'Inter', sans-serif;
   line-height: 100%;
-   
 
   &:disabled {
     opacity: 0.7;
@@ -21,7 +24,6 @@
     background-color: v.$color-primary;
     color: v.$color-white;
     border: 1px solid transparent;
-    
 
     &:hover:not(:disabled) {
       background-color: v.$color-primary-dark;
@@ -35,7 +37,7 @@
     color: v.$text-danger;
 
     &:hover:not(:disabled) {
-      background-color: #FEF2F2;
+      background-color: #fef2f2;
       border-color: v.$text-danger;
     }
   }

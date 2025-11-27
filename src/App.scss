@@ -1,36 +1,41 @@
 @use './styles/variables' as v;
 
-.app-title {
-  // Figma Exact Typography
+// --- 1. Create Reusable Typography Mixin ---
+@mixin font-inter($weight, $size, $spacing: -0.03em) {
   font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 36px;
+  font-weight: $weight;
+  font-size: $size;
   line-height: 100%;
-  letter-spacing: -0.03em; // -3% is -0.03em in CSS
-  
-  // Use variable for color (Professional)
-  color: v.$text-title; 
+  letter-spacing: $spacing;
+}
+
+// --- 2. Placeholder for shared title/subtitle layout ---
+%block-spacing {
+  line-height: 100%;
   margin-top: 45px;
 }
 
+// --- 3. Component Styles ---
+.app-title {
+  @include font-inter(800, 36px);
+  @extend %block-spacing;
+  color: v.$text-title;
+}
+
 .app-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 100%;
-  letter-spacing: -0.03em;
+  @include font-inter(500, 18px);
   color: v.$text-subtitle;
   margin-top: -20px;
-
 }
 
 .loading-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: -0.03em;
+  @include font-inter(600, 16px, -0.03em);
   color: v.$text-loading;
-  
-  
 }
+
+// Optional map example if you plan more variants later
+$font-sizes: (
+  title: 36px,
+  subtitle: 18px,
+  loading: 16px
+);

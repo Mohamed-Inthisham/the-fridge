@@ -1,16 +1,14 @@
 @use '../../styles/variables' as v;
 
 .app-badge {
-  // Shape & Layout (Tailwind handles flex, but specific sizes go here)
-  width: 100px;
-  height: 24px;
-  
-  border-radius: 22px; // Pill shape
-  font-size: 12px;
-  font-weight: 600;
+  width: v.$badge_width;
+  height: v.$badge_height;
+  border-radius: v.$badge_radius;
+  font-size: v.$badge_font_size;
+  font-weight: v.$badge_font_weight;
 
-  
-  white-space: nowrap;
+
+  @apply whitespace-nowrap;
 
   // --- Variant 1: Healthy (> 1 Month) ---
   &--healthy {

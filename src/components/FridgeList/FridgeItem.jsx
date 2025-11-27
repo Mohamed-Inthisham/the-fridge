@@ -17,7 +17,7 @@ const FridgeItem = ({ item, onDelete, onEdit }) => {
         
         {/* 1. Name Column - Fixed Width (e.g., 220px) 
             This ensures the Date always starts at the exact same vertical line. */}
-        <div className="w-[220px] flex-shrink-0 pr-4">
+        <div className="w-[220px] shrink-0 pr-4">
           <span className="fridge-item__title truncate block" title={item.title}>
             {item.title}
           </span>
