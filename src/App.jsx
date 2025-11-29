@@ -24,20 +24,25 @@ function App() {
   const showToast = useCallback((message, type = 'success') => {
     setToast({ show: true, message, type });
 
-    // ✅ Auto hide after 3s from parent (extra safety)
     setTimeout(() => {
       setToast(prev => ({ ...prev, show: false }));
     }, 3000);
   }, []);
 
-  // ✅ Reliable hide toast using functional update
   const hideToast = () => {
     setToast(prev => ({ ...prev, show: false }));
   };
 
-  // Fetch Items
+  // --- 🔴 FIXED SECTION STARTS HERE ---
+  
   const fetchData = useCallback(async () => {
-    if (items.length === 0) setIsLoading(true);
+    // We removed the 'if(items.length)' check because checking 'items' here
+    // forces us to add it to the dependency array, causing the loop.
+    
+    // isLoading is already true by default on first load.
+    // If you want a spinner on re-fetches (like after delete), uncomment the next line:
+    // setIsLoading(true); 
+
     try {
       const data = await getAllItems();
       setItems(data);
@@ -47,7 +52,9 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  }, [items, showToast]);
+  }, [showToast]); // ✅ items REMOVED from dependency array
+
+  // --- 🔴 FIXED SECTION ENDS HERE ---
 
   useEffect(() => {
     fetchData();
@@ -82,11 +89,11 @@ function App() {
         setEditingItem(null);
       }
 
+      // Refresh list
       fetchData();
       showToast("Item deleted successfully!", "success");
 
     } catch {
-      // ✅ Correct usage: pass "error" as type
       showToast("Failed to delete item.", "error");
       setIsModalOpen(false);
     }
@@ -100,7 +107,6 @@ function App() {
   return (
     <div className="relative min-h-screen pb-20">
       
-      {/* ✅ Toast will unmount properly */}
       {toast.show && (
         <Toast 
           message={toast.message} 
@@ -125,7 +131,7 @@ function App() {
         />
 
         <div className="flex justify-end mb-4 mt-8 mx-7">
-          <span className="text-fridge-dark font-bold text-sm">
+          <span className="text-[#0A3456] font-bold text-sm">
             Total items — {items.length.toString().padStart(2, '0')}
           </span>
         </div>
