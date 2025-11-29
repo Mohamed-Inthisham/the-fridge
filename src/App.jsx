@@ -9,18 +9,12 @@ import './App.scss';
 function App() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
-
-  // Edit State
   const [editingItem, setEditingItem] = useState(null);
-
-  // Toast State
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
-  // ✅ Reliable show toast
+
   const showToast = useCallback((message, type = 'success') => {
     setToast({ show: true, message, type });
 
@@ -33,16 +27,9 @@ function App() {
     setToast(prev => ({ ...prev, show: false }));
   };
 
-  // --- 🔴 FIXED SECTION STARTS HERE ---
   
   const fetchData = useCallback(async () => {
-    // We removed the 'if(items.length)' check because checking 'items' here
-    // forces us to add it to the dependency array, causing the loop.
-    
-    // isLoading is already true by default on first load.
-    // If you want a spinner on re-fetches (like after delete), uncomment the next line:
-    // setIsLoading(true); 
-
+   
     try {
       const data = await getAllItems();
       setItems(data);
@@ -52,9 +39,9 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  }, [showToast]); // ✅ items REMOVED from dependency array
+  }, [showToast]); 
 
-  // --- 🔴 FIXED SECTION ENDS HERE ---
+
 
   useEffect(() => {
     fetchData();
